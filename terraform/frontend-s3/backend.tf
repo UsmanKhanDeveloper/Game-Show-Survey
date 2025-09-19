@@ -1,8 +1,10 @@
-terraform {
-  cloud {
-    organization = "sanskrit-survey-site"
-    workspaces {
-      name = "frontend-s3"
-    }
-  }
+terraform { 
+  cloud { 
+    
+    organization = "SanskritDeploymentTF" 
+
+    workspaces { 
+      name = "S3-cloudfront" 
+    } 
+  } 
 }

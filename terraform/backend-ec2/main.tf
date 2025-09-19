@@ -60,7 +60,7 @@ resource "aws_security_group" "backend_sg" {
  
 resource "aws_instance" "backend_server" {
   ami           = "ami-0c101f26f147fa7fd"
-  instance_type = "t2.micro"
+  instance_type = "t3.micro"
   key_name      = "backend-keypair"
   vpc_security_group_ids = [aws_security_group.backend_sg.id]
   iam_instance_profile = aws_iam_instance_profile.ec2_asr_profile.name
@@ -91,11 +91,11 @@ resource "aws_instance" "backend_server" {
               free -h
               EOF
 
-  root_block_device {
-    volume_size = 30          # Size in GB
-    volume_type = "gp2"       # General purpose SSD 
-    delete_on_termination = true
-  }
+  #root_block_device {
+    #volume_size = 30          # Size in GB
+    #volume_type = "gp2"       # General purpose SSD 
+    #delete_on_termination = true
+  #}
 
   tags = {
     Name = "NodeBackendEC2"
